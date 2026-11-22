@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución Conceptual, Histórica y Normativa hacia la Educación Inclusiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        editorial: {
+                            bg: '#F8FAFC',
+                            surface: '#FFFFFF',
+                            ink: '#0F172A',
+                            muted: '#475569',
+                            border: '#E2E8F0'
+                        },
+                        cat: {
+                            segregacion: '#991B1B',
+                            segregacionLight: '#FEF2F2',
+                            segregacionBorder: '#FECACA',
+                            integracion: '#B45309',
+                            integracionLight: '#FFFBEB',
+                            integracionBorder: '#FDE68A',
+                            inclusion: '#0F766E',
+                            inclusionLight: '#F0FDFA',
+                            inclusionBorder: '#99F6E4',
+                            inclusionSocial: '#1D4ED8',
+                            inclusionSocialLight: '#EFF6FF',
+                            inclusionSocialBorder: '#BFDBFE',
+                            educacionInclusiva: '#4338CA',
+                            educacionInclusivaLight: '#EEF2FF',
+                            educacionInclusivaBorder: '#C7D2FE',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-editorial-bg text-editorial-ink font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Notificación Toast para confirmación de copiado -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-xl flex items-center gap-3 text-sm font-medium border border-slate-700 pointer-events-none">
+        <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span id="toast-message">Texto copiado al portapapeles correctamente.</span>
+    </div>
+
+    <!-- Encabezado Editorial Académico -->
+    <header class="bg-white border-b border-editorial-border sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-700 mb-1">
+                        <span class="inline-block w-2 h-2 rounded-full bg-indigo-600"></span>
+                        <span>Cartografía Conceptual, Histórica y Normativa</span>
+                    </div>
+                    <h1 class="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-tight">
+                        Evolución hacia la Educación Inclusiva
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl">
+                        De la exclusión y el modelo médico-rehabilitador a la transformación sistémica y el enfoque de derechos humanos.
+                    </p>
+                </div>
+
+                <!-- Navegación entre Vistas Principales -->
+                <nav aria-label="Vistas principales" class="flex flex-wrap items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start lg:self-center">
+                    <button onclick="switchTab('timeline')" id="tab-btn-timeline" class="tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white text-slate-900 shadow-sm">
+                        Línea de Tiempo
+                    </button>
+                    <button onclick="switchTab('matrix')" id="tab-btn-matrix" class="tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:text-slate-900">
+                        Matriz de Transición
+                    </button>
+                    <button onclick="switchTab('justification')" id="tab-btn-justification" class="tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span>Justificación Académica</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- ========================================================= -->
+        <!-- VISTA 1: LÍNEA DE TIEMPO INTERACTIVA                      -->
+        <!-- ========================================================= -->
+        <section id="view-timeline" class="space-y-6">
+            
+            <!-- Panel de Filtros Multidimensionales -->
+            <div class="bg-white rounded-2xl border border-editorial-border p-4 sm:p-6 shadow-sm space-y-5">
+                
+                <!-- Filtro Primario: 5 Categorías Estructurales -->
+                <div>
+                    <div class="flex items-center justify-between mb-2.5">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">1. Filtrar por Categoría Paradigmática</span>
+                        <span id="counter-badge" class="text-xs font-medium bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full border border-slate-200">
+                            Mostrando 17 hitos
+                        </span>
+                    </div>
+                    <div id="category-filters" class="flex flex-wrap gap-2">
+                        <!-- Generado dinámicamente por JS -->
+                    </div>
+                </div>
+
+                <!-- Filtro Secundario: Dimensiones de Análisis -->
+                <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">2. Dimensión:</span>
+                        <div id="type-filters" class="flex flex-wrap gap-1.5">
+                            <!-- Generado dinámicamente por JS -->
+                        </div>
+                    </div>
+
+                    <button onclick="resetFilters()" class="text-xs font-medium text-slate-500 hover:text-indigo-700 underline self-start sm:self-center transition-colors">
+                        Restablecer filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Barra de Progreso / Navegación Rápida Cronológica (Horizontal) -->
+            <div class="bg-white rounded-2xl border border-editorial-border p-4 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Navegación Rápida por Periodo</span>
+                    <span class="text-xs text-slate-400 hidden sm:inline">Haz clic en un nodo o tarjeta para inspeccionar el análisis completo</span>
+                </div>
+                <div id="quick-nav-track" class="flex items-center gap-2 overflow-x-auto pb-2 pt-1">
+                    <!-- Nodos horizontales generados por JS -->
+                </div>
+            </div>
+
+            <!-- Contenedor de la Línea de Tiempo Vertical + Panel Lateral de Detalle (Desktop) / Modal (Mobile) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Columna Izquierda: Eje Cronológico Vertical -->
+                <div class="lg:col-span-7 relative">
+                    <div id="timeline-container" class="relative pl-6 sm:pl-8 border-l-2 border-slate-300 space-y-6 py-2">
+                        <!-- Tarjetas de hitos generadas dinámicamente por JS -->
+                    </div>
+
+                    <!-- Estado vacío si no hay coincidencias -->
+                    <div id="empty-state" class="hidden bg-white rounded-2xl border border-editorial-border p-8 text-center">
+                        <p class="font-serif text-lg font-bold text-slate-800">No se encontraron hitos con esta combinación de filtros</p>
+                        <p class="text-sm text-slate-600 mt-1">Intenta seleccionar "Todos" en la dimensión secundaria o restablecer los filtros.</p>
+                        <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition-colors">
+                            Ver todos los hitos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Ficha Analítica Ampliada (Sticky en Desktop) -->
+                <aside class="lg:col-span-5 lg:sticky lg:top-28">
+                    <div id="detail-panel" class="bg-white rounded-2xl border border-editorial-border shadow-md overflow-hidden transition-all duration-300">
+                        <!-- Contenido de la ficha cargada dinámicamente -->
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VISTA 2: MATRIZ DE TRANSICIÓN PARADIGMÁTICA               -->
+        <!-- ========================================================= -->
+        <section id="view-matrix" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl border border-editorial-border p-6 sm:p-8 shadow-sm">
+                <div class="max-w-3xl mb-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-indigo-700">Análisis Comparativo Sistémico</span>
+                    <h2 class="font-serif text-2xl font-bold text-slate-900 mt-1">Matriz de Transición Paradigmática</h2>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                        Siguiendo a <strong>Echeita y Ainscow (2011)</strong>, <strong>Booth y Ainscow (2000/2015)</strong> y la <strong>Observación General N.º 4 del Comité CDPD (2016)</strong>, el tránsito hacia la Educación Inclusiva no constituye un mero cambio terminológico, sino una transformación profunda en la manera de concebir la diferencia humana y el rol ético-político de la escuela.
+                    </p>
+                </div>
+
+                <!-- Tabla Comparativa Responsiva -->
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <table class="w-full text-left border-collapse min-w-[780px]">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                                <th class="p-4 font-semibold w-1/5">Dimensión de Análisis</th>
+                                <th class="p-4 font-semibold bg-red-950/90 w-1/4">1. Segregación</th>
+                                <th class="p-4 font-semibold bg-amber-900/90 w-1/4">2. Integración</th>
+                                <th class="p-4 font-semibold bg-indigo-950/90 w-[30%]">3. Inclusión / Educación Inclusiva</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-sm">
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">Concepción de la diversidad y la diferencia</td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Vista como anomalía, desviación o patología individual (<span class="italic">modelo médico-rehabilitador</span>). Se clasifica y separa según el déficit.
+                                </td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Vista como una condición especial del estudiante (<span class="italic">Necesidades Educativas Especiales - NEE</span>) que requiere compensación para acercarse a la "norma".
+                                </td>
+                                <td class="p-4 text-slate-800 font-medium bg-indigo-50/30 align-top">
+                                    Concebida como valor inherente a la condición humana (<span class="italic">la diversidad es la norma</span>, UNESCO, 2020). Enfoque de derechos humanos y alteridad (Skliar, 2019).
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">Ubicación de las dificultades</td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Exclusivamente en el sujeto (sus limitaciones biológicas, sensoriales, cognitivas o conductuales).
+                                </td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    En las características del alumno "integrado" y en su capacidad de adaptación al ritmo escolar estándar.
+                                </td>
+                                <td class="p-4 text-slate-800 font-medium bg-indigo-50/30 align-top">
+                                    En la interacción entre el estudiante y las <strong>barreras para el aprendizaje y la participación</strong> presentes en las culturas, políticas y prácticas (Booth y Ainscow, 2000).
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">Responsabilidad del sistema educativo</td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Crear circuitos educativos paralelos (escuelas especiales o aulas aisladas) manteniendo intacta la escuela ordinaria homogénea.
+                                </td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Permitir el acceso físico a la escuela regular mediante apoyos individuales, pero conservando un currículo rígido al que el estudiante debe asimilarse.
+                                </td>
+                                <td class="p-4 text-slate-800 font-medium bg-indigo-50/30 align-top">
+                                    Transformar estructuralmente el sistema educativo (currículo flexible, DUA, PIAR, gestión democrática) para garantizar <strong>presencia, participación y aprendizaje</strong> de todos sin excepción (Echeita y Ainscow, 2011).
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">Población focalizada</td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Personas diagnosticadas con deficiencias o trastornos severos.
+                                </td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Estudiantes con discapacidad o etiquetados con NEE.
+                                </td>
+                                <td class="p-4 text-slate-800 font-medium bg-indigo-50/30 align-top">
+                                    <strong>Todos los estudiantes</strong>, prestando especial atención a quienes enfrentan mayor riesgo de exclusión o marginación (género, etnia, ruralidad, pobreza, discapacidad, migración).
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="p-4 font-bold text-slate-900 bg-slate-50">Relación con la Inclusión Social</td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Reproduce la marginación social y limita la ciudadanía plena.
+                                </td>
+                                <td class="p-4 text-slate-700 align-top">
+                                    Inserción condicionada; persisten estigmas y dinámicas de subalternidad dentro del aula.
+                                </td>
+                                <td class="p-4 text-slate-800 font-medium bg-indigo-50/30 align-top">
+                                    La educación inclusiva es condición indispensable y motor de justicia social, equidad y cohesión democrática (Echeita y Duk, 2008; Acevedo Zapata, 2017).
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Síntesis Visual de las 5 Categorías Interconectadas -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="font-serif text-lg font-bold text-slate-900 mb-4">Relación entre las cinco categorías de la línea de tiempo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+                        <div class="p-4 rounded-xl bg-red-50 border border-red-200">
+                            <span class="text-xs font-bold uppercase text-red-800">1. Segregación</span>
+                            <p class="text-xs text-slate-700 mt-1.5 leading-relaxed">Institucionalización y separación bajo el paradigma clínico del déficit. Se niega la convivencia en espacios comunes.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                            <span class="text-xs font-bold uppercase text-amber-800">2. Integración</span>
+                            <p class="text-xs text-slate-700 mt-1.5 leading-relaxed">Apertura al ingreso físico en la escuela regular (Normalización y NEE), pero bajo una lógica asimilacionista.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-teal-50 border border-teal-200">
+                            <span class="text-xs font-bold uppercase text-teal-800">3. Inclusión</span>
+                            <p class="text-xs text-slate-700 mt-1.5 leading-relaxed">Ruptura epistemológica: se desplaza el foco del déficit del alumno hacia las barreras institucionales y culturales.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-blue-50 border border-blue-200">
+                            <span class="text-xs font-bold uppercase text-blue-800">4. Inclusión Social</span>
+                            <p class="text-xs text-slate-700 mt-1.5 leading-relaxed">Expansión hacia los derechos humanos, la equidad estructural, el reconocimiento de la alteridad y la justicia social.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-indigo-50 border border-indigo-200">
+                            <span class="text-xs font-bold uppercase text-indigo-800">5. Educación Inclusiva</span>
+                            <p class="text-xs text-slate-700 mt-1.5 leading-relaxed">Materialización pedagógica, curricular y normativa (DUA, PIAR, ODS 4) que garantiza presencia, participación y logros para todos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- VISTA 3: JUSTIFICACIÓN ACADÉMICA Y CRITERIOS DE SELECCIÓN -->
+        <!-- ========================================================= -->
+        <section id="view-justification" class="hidden">
+            <div class="bg-white rounded-2xl border border-editorial-border p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-700">Fundamentación Teórica y Metodológica</span>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+                            Justificación Académica y Criterios de Selección
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                            Texto listo para acompañar el enlace de la línea de tiempo en el foro o documento de entrega del curso.
+                        </p>
+                    </div>
+                    <button onclick="copyJustificationText()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold rounded-xl shadow-sm transition-all shrink-0">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                        </svg>
+                        <span>Copiar texto completo</span>
+                    </button>
+                </div>
+
+                <!-- Cuerpo del Texto Académico -->
+                <article id="justification-content" class="prose prose-slate max-w-none mt-6 space-y-5 text-slate-800 leading-relaxed text-sm sm:text-base">
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-slate-900">
+                        Criterios epistemológicos, históricos y normativos en la construcción de la línea de tiempo hacia la Educación Inclusiva
+                    </h3>
+
+                    <p>
+                        La presente línea de tiempo interactiva ha sido diseñada con el propósito de reconstruir críticamente el tránsito histórico, conceptual y jurídico desde los modelos de <strong>segregación</strong> e <strong>integración</strong> hasta la consolidación de la <strong>inclusión</strong>, la <strong>inclusión social</strong> y la <strong>educación inclusiva</strong> como derecho humano fundamental. Para la selección de los acontecimientos, autores y disposiciones normativas incluidos en el recurso, se establecieron cuatro criterios académicos articulados:
+                    </p>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <p>
+                            <strong>1. Criterio de ruptura epistemológica y diferenciación conceptual:</strong> Siguiendo el planteamiento central de <strong>Echeita y Ainscow (2011)</strong>, uno de los mayores obstáculos para avanzar hacia sistemas educativos más justos radica en la confusión terminológica entre <em>integración</em> e <em>inclusión</em>, así como en la reducción de esta última únicamente a la atención de estudiantes con discapacidad. Por ello, se seleccionaron hitos que evidencian el desplazamiento del foco de atención: desde el modelo médico-rehabilitador propio de la <em>segregación</em> (finales del siglo XIX y primera mitad del siglo XX) y el enfoque compensatorio de las Necesidades Educativas Especiales (NEE) inaugurado por el <strong>Informe Warnock (1978)</strong> y la <strong>Declaración de Salamanca (UNESCO, 1994)</strong>, hacia la identificación y eliminación de las <em>barreras para el aprendizaje y la participación</em> propuesta por <strong>Booth y Ainscow (2000)</strong> en el <em>Index for Inclusion</em> y ampliada junto a <strong>Simón, Sandoval y Muñoz (2015)</strong> en torno a las dimensiones de culturas, políticas y prácticas inclusivas.
+                        </p>
+                        <p>
+                            <strong>2. Criterio de exigibilidad jurídica y garantía del derecho a la educación:</strong> En coherencia con <strong>Echeita y Duk (2008)</strong>, quienes sostienen que la inclusión educativa constituye un requisito intrínseco para el ejercicio pleno del derecho a la educación —en tanto exige erradicar toda forma de discriminación—, se incorporaron instrumentos internacionales y nacionales con carácter vinculante. Destacan la <strong>Declaración Universal de los Derechos Humanos (1948, Art. 26)</strong>, la <strong>Conferencia de Jomtien (1990)</strong>, el <strong>Artículo 24 de la Convención sobre los Derechos de las Personas con Discapacidad (ONU, 2006)</strong>, la <strong>Observación General N.º 4 del Comité CDPD (2016)</strong> —que delimita con rigor jurídico las diferencias entre exclusión, segregación, integración e inclusión—, la <strong>Agenda 2030 y la Meta 4.5 de los ODS (2015)</strong>, el <strong>Informe GEM de la UNESCO (2020)</strong> bajo el lema <em>«Todos sin excepción»</em>, y, en el ámbito colombiano, el <strong>Decreto 1421 de 2017</strong>, que reglamenta la atención educativa mediante el Diseño Universal para el Aprendizaje (DUA) y el Plan Individual de Ajustes Razonables (PIAR).
+                        </p>
+                        <p>
+                            <strong>3. Criterio de articulación entre inclusión social, subjetividad y justicia educativa:</strong> Comprender la educación inclusiva exige situarla dentro de un proyecto más amplio de <em>inclusión social</em>. En este sentido, se integraron los desarrollos de <strong>Acevedo Zapata (2013, 2014, 2017)</strong> y <strong>Ruiz López (2016)</strong>, quienes analizan la relación entre inclusión social, equidad, subjetividad y reconocimiento de la alteridad en los escenarios educativos, evidenciando que la escuela no puede abstraerse de las desigualdades estructurales que afectan a poblaciones históricamente vulneradas.
+                        </p>
+                        <p>
+                            <strong>4. Criterio de situacionalidad crítica latinoamericana:</strong> Finalmente, retomando los aportes de <strong>Castillo Ibáñez (2019)</strong> —quien dialoga con <strong>Carlos Skliar</strong>, <strong>Rodolfo Stavenhagen</strong> y <strong>Paulo Freire</strong>—, la selección de hitos incorpora una mirada crítica situada en las realidades de América Latina. Este criterio permite interpelar las políticas estandarizadas desde una pedagogía de la hospitalidad, la interculturalidad crítica y la emancipación, asumiendo que la diversidad no es una anomalía por corregir, sino la condición misma de toda comunidad educativa democrática.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200">
+                        <h4 class="font-serif text-base font-bold text-slate-900 mb-2">Referencias bibliográficas base</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5">
+                            <li>Acevedo Zapata, S. (2013, 2014, 2017). Aportes conceptuales sobre inclusión social, equidad y subjetividad en contextos educativos. UNAD.</li>
+                            <li>Booth, T., y Ainscow, M. (2000). <em>Index for Inclusion: Developing learning and participation in schools</em>. CSIE.</li>
+                            <li>Booth, T., Simón, C., Sandoval, M., Echeita, G., y Muñoz, Y. (2015). Guía para la Educación Inclusiva: nueva edición revisada y ampliada. <em>REICE</em>, 13(3), 5-19.</li>
+                            <li>Castillo Ibáñez, N. M. (2019). Educación inclusiva: contradicciones, debates y resistencias. <em>Praxis Educativa</em>, 23(3), 1-14.</li>
+                            <li>Echeita, G., y Ainscow, M. (2011). La educación inclusiva como derecho. Marco de referencia y pautas de acción para el desarrollo de una revolución pendiente. <em>Tejuelo</em>, 12, 26-46.</li>
+                            <li>Echeita, G., y Duk, C. (2008). Inclusión educativa. <em>REICE</em>, 6(2), 1-8.</li>
+                            <li>Ministerio de Educación Nacional [MEN]. (2017). <em>Decreto 1421 de 2017</em>. República de Colombia.</li>
+                            <li>ONU. (2006). <em>Convención sobre los Derechos de las Personas con Discapacidad</em> (Art. 24) y Comité CDPD (2016), <em>Observación General N.º 4</em>.</li>
+                            <li>Ruiz López, A. (2016). Inclusión social y educativa: perspectivas y desafíos contemporáneos.</li>
+                            <li>UNESCO. (1994). <em>Declaración de Salamanca y Marco de Acción sobre Necesidades Educativas Especiales</em>.</li>
+                            <li>UNESCO. (2020). <em>Informe de Seguimiento de la Educación en el Mundo 2020: Inclusión y educación, todos sin excepción</em>.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página académico -->
+    <footer class="bg-white border-t border-editorial-border mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <p>Recurso Académico Interactivo • Evolución Conceptual, Histórica y Normativa hacia la Educación Inclusiva</p>
+            <p>Basado en Echeita y Ainscow (2011), Booth y Ainscow (2000/2015), ONU (2006/2016), UNESCO (1994/2020) y MEN (2017).</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- LÓGICA DE DATOS E INTERACTIVIDAD JAVASCRIPT               -->
+    <!-- ========================================================= -->
+    <script>
+        // Definición de las 5 Categorías Paradigmáticas con identidad cromática diferenciada
+        const CATEGORIES = {
+            segregacion: {
+                id: 'segregacion',
+                label: '1. Segregación',
+                shortLabel: 'Segregación',
+                badgeBg: 'bg-red-100 text-red-900 border-red-300',
+                activeBtn: 'bg-red-800 text-white border-red-800 shadow-sm',
+                inactiveBtn: 'bg-red-50/70 text-red-900 border-red-200 hover:bg-red-100',
+                dotColor: 'bg-red-700 ring-red-200',
+                accentBorder: 'border-l-red-700',
+                headerBg: 'bg-red-900'
+            },
+            integracion: {
+                id: 'integracion',
+                label: '2. Integración',
+                shortLabel: 'Integración',
+                badgeBg: 'bg-amber-100 text-amber-900 border-amber-300',
+                activeBtn: 'bg-amber-700 text-white border-amber-700 shadow-sm',
+                inactiveBtn: 'bg-amber-50/70 text-amber-900 border-amber-200 hover:bg-amber-100',
+                dotColor: 'bg-amber-600 ring-amber-200',
+                accentBorder: 'border-l-amber-600',
+                headerBg: 'bg-amber-800'
+            },
+            inclusion: {
+                id: 'inclusion',
+                label: '3. Inclusión',
+                shortLabel: 'Inclusión',
+                badgeBg: 'bg-teal-100 text-teal-900 border-teal-300',
+                activeBtn: 'bg-teal-700 text-white border-teal-700 shadow-sm',
+                inactiveBtn: 'bg-teal-50/70 text-teal-900 border-teal-200 hover:bg-teal-100',
+                dotColor: 'bg-teal-600 ring-teal-200',
+                accentBorder: 'border-l-teal-600',
+                headerBg: 'bg-teal-800'
+            },
+            inclusionSocial: {
+                id: 'inclusionSocial',
+                label: '4. Inclusión Social',
+                shortLabel: 'Inclusión Social',
+                badgeBg: 'bg-blue-100 text-blue-900 border-blue-300',
+                activeBtn: 'bg-blue-700 text-white border-blue-700 shadow-sm',
+                inactiveBtn: 'bg-blue-50/70 text-blue-900 border-blue-200 hover:bg-blue-100',
+                dotColor: 'bg-blue-600 ring-blue-200',
+                accentBorder: 'border-l-blue-600',
+                headerBg: 'bg-blue-800'
+            },
+            educacionInclusiva: {
+                id: 'educacionInclusiva',
+                label: '5. Educación Inclusiva',
+                shortLabel: 'Educación Inclusiva',
+                badgeBg: 'bg-indigo-100 text-indigo-900 border-indigo-300',
+                activeBtn: 'bg-indigo-700 text-white border-indigo-700 shadow-sm',
+                inactiveBtn: 'bg-indigo-50/70 text-indigo-900 border-indigo-200 hover:bg-indigo-100',
+                dotColor: 'bg-indigo-600 ring-indigo-200',
+                accentBorder: 'border-l-indigo-600',
+                headerBg: 'bg-indigo-900'
+            }
+        };
+
+        // Dimensiones secundarias de filtrado
+        const DIMENSION_TYPES = [
+            { id: 'all', label: 'Todos los ejes' },
+            { id: 'autores', label: 'Autores Representativos' },
+            { id: 'normatividad', label: 'Normatividad' },
+            { id: 'conceptual', label: 'Cambios Conceptuales' },
+            { id: 'historico', label: 'Hitos Históricos' }
+        ];
+
+        // Base de datos cronológica rigurosa (17 hitos articulados en las 5 categorías)
+        const TIMELINE_EVENTS = [
+            {
+                id: 'seg-1',
+                year: 'Finales s. XIX – Primera mitad s. XX',
+                sortYear: 1900,
+                category: 'segregacion',
+                types: ['historico', 'conceptual'],
+                title: 'Modelo médico-rehabilitador y creación de escuelas especiales separadas',
+                summary: 'Institucionalización de la educación especial como circuito paralelo aislado de la escuela ordinaria, fundamentado en el diagnóstico clínico del déficit.',
+                authors: 'Alfred Binet y Théodore Simon (escalas psicométricas); tradición médico-pedagógica institucional.',
+                normativity: 'Reglamentaciones nacionales de asistencia médica, beneficencia e instrucción especial diferenciada.',
+                conceptualChange: 'El déficit se concibe como una patología biológica o intelectual intrínseca al individuo. Se impone la clasificación psicométrica para homogeneizar las aulas ordinarias excluyendo a quienes se desvían de la "norma".',
+                historicalMilestone: 'Consolidación de internados, asilos y escuelas especiales segregadas según categorías diagnósticas (ciegos, sordos, "deficientes mentales"), legitimando dos sistemas educativos separados.',
+                reference: 'Echeita, G., y Ainscow, M. (2011). La educación inclusiva como derecho. Tejuelo, 12, 26-46.'
+            },
+            {
+                id: 'seg-2',
+                year: '1948',
+                sortYear: 1948,
+                category: 'segregacion',
+                types: ['normatividad', 'historico'],
+                title: 'Declaración Universal de los Derechos Humanos (Artículo 26)',
+                summary: 'Reconocimiento jurídico universal de la educación como derecho humano fundamental, aunque persistieron en la práctica estructuras escolares segregadas.',
+                authors: 'Asamblea General de las Naciones Unidas (Comisión de Derechos Humanos presidida por Eleanor Roosevelt).',
+                normativity: 'Declaración Universal de los Derechos Humanos (ONU, 10 de diciembre de 1948), Artículo 26.',
+                conceptualChange: 'Se establece por primera vez el principio universal de que "toda persona tiene derecho a la educación" orientada al pleno desarrollo de la personalidad humana; sin embargo, no cuestionó aún la existencia de subsistemas segregados para personas con discapacidad.',
+                historicalMilestone: 'Hito fundacional del derecho internacional de los derechos humanos tras la Segunda Guerra Mundial, que sentará las bases jurídicas para las posteriores reivindicaciones contra la discriminación educativa.',
+                reference: 'ONU (1948). Declaración Universal de los Derechos Humanos. Art. 26.'
+            },
+            {
+                id: 'int-1',
+                year: '1959 – 1969',
+                sortYear: 1959,
+                category: 'integracion',
+                types: ['historico', 'autores', 'conceptual'],
+                title: 'Principio de Normalización y movimiento de desinstitucionalización',
+                summary: 'Cuestionamiento ético a las instituciones cerradas; derecho a llevar una vida lo más cercana posible a los patrones cotidianos de la sociedad.',
+                authors: 'Niels Erik Bank-Mikkelsen (Dinamarca, 1959) y Bengt Nirje (Suecia, 1969).',
+                normativity: 'Ley Danesa de 1959 sobre el cuidado de personas con deficiencia mental; antecedentes de las leyes de integración escolar en Escandinavia y Norteamérica.',
+                conceptualChange: 'Tránsito desde el aislamiento institucional hacia la "normalización" de las condiciones de vida. No significaba "volver normal" a la persona, sino ofrecerle entornos y ritmos de vida cotidianos en la comunidad.',
+                historicalMilestone: 'Inicio del cierre progresivo de grandes instituciones segregadas y apertura de experiencias pioneras de escolarización en centros ordinarios mediante aulas de apoyo.',
+                reference: 'Nirje, B. (1969). The Normalization Principle and Its Human Management Implications. En R. Kugel y W. Wolfensberger (Eds.).'
+            },
+            {
+                id: 'int-2',
+                year: '1978',
+                sortYear: 1978,
+                category: 'integracion',
+                types: ['conceptual', 'autores', 'historico'],
+                title: 'Informe Warnock e introducción de las Necesidades Educativas Especiales (NEE)',
+                summary: 'Revolución conceptual en el ámbito educativo: abandono de etiquetas médicas rígidas y reconocimiento de que cualquier estudiante puede requerir apoyos.',
+                authors: 'Mary Warnock (Comité de Investigación sobre la Educación de los Niños y Jóvenes Deficientes del Reino Unido).',
+                normativity: 'Special Educational Needs: Report of the Committee of Enquiry into the Education of Handicapped Children and Young People (Education Act de 1981 en Reino Unido).',
+                conceptualChange: 'Sustitución de las categorías médicas permanentes por el continuo de Necesidades Educativas Especiales (NEE). Se reconoce que los fines de la educación son los mismos para todos los niños y que las necesidades surgen en relación con los recursos disponibles.',
+                historicalMilestone: 'Impulso decisivo a las políticas de integración escolar en Europa y América Latina durante la década de 1980, redefiniendo el papel de la educación especial como conjunto de recursos de apoyo.',
+                reference: 'Warnock, M. (1978). Special Educational Needs. Her Majesty’s Stationery Office (HMSO).'
+            },
+            {
+                id: 'int-3',
+                year: '1990',
+                sortYear: 1990,
+                category: 'integracion',
+                types: ['normatividad', 'historico'],
+                title: 'Conferencia Mundial sobre Educación para Todos en Jomtien (Tailandia)',
+                summary: 'Compromiso global para universalizar el acceso a la educación básica y reducir las desigualdades que afectan a grupos vulnerables.',
+                authors: 'UNESCO, UNICEF, PNUD y Banco Mundial.',
+                normativity: 'Declaración Mundial sobre Educación para Todos y Marco de Acción para Satisfacer las Necesidades Básicas de Aprendizaje (Jomtien, 1990).',
+                conceptualChange: 'Amplía la mirada más allá de la discapacidad hacia la universalización del acceso educativo, enfatizando la equidad y la satisfacción de las necesidades básicas de aprendizaje de todos los niños, jóvenes y adultos.',
+                historicalMilestone: 'Primer gran consenso internacional post-Guerra Fría que sitúa la cobertura y equidad educativa en el centro de la agenda global del desarrollo.',
+                reference: 'UNESCO (1990). Declaración Mundial sobre Educación para Todos. Jomtien.'
+            },
+            {
+                id: 'int-4',
+                year: '1994',
+                sortYear: 1994,
+                category: 'integracion',
+                types: ['normatividad', 'historico', 'conceptual'],
+                title: 'Declaración de Salamanca y Marco de Acción sobre NEE (UNESCO)',
+                summary: 'Punto de inflexión internacional: las escuelas ordinarias deben acoger a todos los niños con independencia de sus condiciones físicas, intelectuales, sociales o lingüísticas.',
+                authors: 'UNESCO y Gobierno de España (Conferencia Mundial sobre Necesidades Educativas Especiales, 92 gobiernos y 25 organizaciones internacionales).',
+                normativity: 'Declaración de Salamanca y Marco de Acción para las Necesidades Educativas Especiales (UNESCO, 1994).',
+                conceptualChange: 'Proclama que las escuelas ordinarias con orientación integradora son el medio más eficaz para combatir actitudes discriminatorias. No obstante, como advierten Echeita y Ainscow (2011), en la práctica muchos países la aplicaron bajo una lógica de integración asimilacionista (adaptar al alumno "especial" a un currículo rígido).',
+                historicalMilestone: 'Consolida el término "escuela integradora" como estándar internacional y detona reformas educativas en todo el mundo durante los años noventa.',
+                reference: 'UNESCO (1994). Declaración de Salamanca y Marco de Acción sobre Necesidades Educativas Especiales.'
+            },
+            {
+                id: 'inc-1',
+                year: '2000',
+                sortYear: 2000,
+                category: 'inclusion',
+                types: ['autores', 'conceptual'],
+                title: 'Index for Inclusion: de las "NEE" a las "Barreras para el aprendizaje y la participación"',
+                summary: 'Ruptura paradigmática que desplaza la mirada desde las dificultades individuales del estudiante hacia las barreras presentes en el entorno escolar.',
+                authors: 'Tony Booth y Mel Ainscow (Centre for Studies on Inclusive Education - CSIE, Reino Unido; traducción al español en 2002).',
+                normativity: 'Instrumento internacional de autoevaluación y mejora escolar adoptado por la UNESCO y ministerios de educación en múltiples países.',
+                conceptualChange: 'Abandono crítico del concepto de NEE (por su riesgo de etiquetaje) y formulación del concepto de "barreras para el aprendizaje y la participación". Propone transformar tres dimensiones institucionales: culturas, políticas y prácticas inclusivas.',
+                historicalMilestone: 'Publicación de la primera edición del Index for Inclusion, brindando a las comunidades educativas una metodología concreta para democratizar la escuela desde adentro.',
+                reference: 'Booth, T., y Ainscow, M. (2000). Index for Inclusion: Developing learning and participation in schools. CSIE.'
+            },
+            {
+                id: 'inc-2',
+                year: '2008',
+                sortYear: 2008,
+                category: 'inclusion',
+                types: ['autores', 'conceptual'],
+                title: 'Inclusión educativa como requisito intrínseco del derecho a la educación',
+                summary: 'Fundamentación ética y jurídica que establece que no puede hablarse de derecho pleno a la educación si persiste cualquier forma de exclusión o discriminación.',
+                authors: 'Gerardo Echeita y Cynthia Duk.',
+                normativity: 'Articulación con la 48.ª Conferencia Internacional de Educación de la UNESCO (Ginebra, 2008): "La educación inclusiva: el camino hacia el futuro".',
+                conceptualChange: 'La inclusión educativa deja de ser una opción pedagógica o de buena voluntad para constituirse en un imperativo ético y requisito indispensable del derecho humano a una educación de calidad con equidad.',
+                historicalMilestone: 'Consolidación de redes iberoamericanas de investigación sobre inclusión educativa que cuestionan la segmentación socioeconómica y escolar de la región.',
+                reference: 'Echeita, G., y Duk, C. (2008). Inclusión educativa. REICE. Revista Iberoamericana sobre Calidad, Eficacia y Cambio en Educación, 6(2), 1-8.'
+            },
+            {
+                id: 'inc-3',
+                year: '2011',
+                sortYear: 2011,
+                category: 'inclusion',
+                types: ['autores', 'conceptual'],
+                title: 'Diferenciación crítica entre Integración e Inclusión: "una revolución pendiente"',
+                summary: 'Clarificación teórica rigurosa frente a la ambigüedad conceptual; define la inclusión como un proceso sistémico de presencia, participación y aprendizaje.',
+                authors: 'Gerardo Echeita y Mel Ainscow.',
+                normativity: 'Marco de referencia internacional para el análisis y diseño de políticas públicas de educación inclusiva.',
+                conceptualChange: 'Advierte que llamar "inclusión" a lo que sigue siendo "integración" perpetúa el modelo del déficit. Define la educación inclusiva en torno a cuatro elementos: 1) Es un proceso interminable; 2) Busca presencia, participación y éxito de todos; 3) Exige identificar y eliminar barreras; 4) Pone énfasis en grupos en riesgo de marginación o fracaso.',
+                historicalMilestone: 'Publicación de un texto de referencia obligada en el mundo hispanohablante para evaluar si las reformas escolares transforman realmente el sistema o solo maquilan la integración.',
+                reference: 'Echeita, G., y Ainscow, M. (2011). La educación inclusiva como derecho. Marco de referencia y pautas de acción para el desarrollo de una revolución pendiente. Tejuelo, 12, 26-46.'
+            },
+            {
+                id: 'soc-1',
+                year: '2006',
+                sortYear: 2006,
+                category: 'inclusionSocial',
+                types: ['normatividad', 'conceptual', 'historico'],
+                title: 'Convención sobre los Derechos de las Personas con Discapacidad (ONU, Art. 24) y Modelo Social',
+                summary: 'Tratado internacional vinculante que consagra el Modelo Social de la Discapacidad y exige a los Estados garantizar un sistema de educación inclusiva en todos los niveles.',
+                authors: 'Organización de las Naciones Unidas (ONU) y movimiento internacional de personas con discapacidad ("Nada sobre nosotros sin nosotros").',
+                normativity: 'Convención sobre los Derechos de las Personas con Discapacidad (CDPD, aprobada en 2006 y en vigor desde 2008), Artículo 24.',
+                conceptualChange: 'Consagra el Modelo Social: la discapacidad no reside en la deficiencia de la persona, sino en la interacción entre esta y las barreras actitudinales y del entorno que impiden su participación plena e igualitaria en la sociedad.',
+                historicalMilestone: 'Primer tratado de derechos humanos del siglo XXI; transforma la discapacidad de asunto médico-asistencial en cuestión de derechos humanos, ciudadanía e inclusión social.',
+                reference: 'ONU (2006). Convención sobre los Derechos de las Personas con Discapacidad, Artículo 24.'
+            },
+            {
+                id: 'soc-2',
+                year: '2013 – 2017',
+                sortYear: 2014,
+                category: 'inclusionSocial',
+                types: ['autores', 'conceptual'],
+                title: 'Inclusión social, equidad, subjetividad y reconocimiento de la alteridad en educación',
+                summary: 'Articulación entre los procesos educativos y las dinámicas de inclusión social, justicia redistributiva y reconocimiento cultural de las subjetividades diversas.',
+                authors: 'Sandra Acevedo Zapata (2013, 2014, 2017) y A. Ruiz López (2016).',
+                normativity: 'Políticas de educación superior inclusiva y lineamientos de equidad social en América Latina y Colombia.',
+                conceptualChange: 'Amplía la comprensión de la inclusión hacia la dimensión subjetiva, ética y social: incluir no es solo permitir el ingreso institucional, sino reconocer al otro en su alteridad, desmontar dispositivos de exclusión simbólica y promover la justicia social.',
+                historicalMilestone: 'Fortalecimiento de la producción académica colombiana y latinoamericana que vincula la formación docente con la transformación social y comunitaria.',
+                reference: 'Acevedo Zapata, S. (2013, 2014, 2017). Aportes sobre inclusión social y educación; Ruiz López, A. (2016).'
+            },
+            {
+                id: 'soc-3',
+                year: '2015',
+                sortYear: 2015,
+                category: 'inclusionSocial',
+                types: ['normatividad', 'historico'],
+                title: 'Agenda 2030 y Objetivo de Desarrollo Sostenible 4 (Meta 4.5)',
+                summary: 'Compromiso mundial por una educación inclusiva, equitativa y de calidad, eliminando disparidades de género, vulnerabilidad, pueblos indígenas y discapacidad.',
+                authors: 'Asamblea General de las Naciones Unidas (193 Estados miembros) y Declaración de Incheon (UNESCO).',
+                normativity: 'Agenda 2030 para el Desarrollo Sostenible — ODS 4 (Meta 4.5) y Marco de Acción Educación 2030.',
+                conceptualChange: 'Sitúa la educación inclusiva como eje transversal del desarrollo sostenible y la cohesión social, vinculando explícitamente la equidad educativa con la superación de las desigualdades estructurales de género, etnia, ruralidad y discapacidad.',
+                historicalMilestone: 'Reemplaza los Objetivos de Desarrollo del Milenio (centrados solo en cobertura primaria) por una agenda universal enfocada en inclusión, equidad y calidad a lo largo de toda la vida.',
+                reference: 'ONU / UNESCO (2015). Declaración de Incheon y Marco de Acción para la realización del Objetivo de Desarrollo Sostenible 4.'
+            },
+            {
+                id: 'soc-4',
+                year: '2016',
+                sortYear: 2016,
+                category: 'inclusionSocial',
+                types: ['normatividad', 'conceptual'],
+                title: 'Observación General N.º 4 del Comité CDPD (ONU) sobre el Derecho a la Educación Inclusiva',
+                summary: 'Interpretación jurídica autorizada del Artículo 24 de la CDPD que delimita con precisión las diferencias entre exclusión, segregación, integración e inclusión.',
+                authors: 'Comité sobre los Derechos de las Personas con Discapacidad de las Naciones Unidas.',
+                normativity: 'Observación General N.º 4 (2016) sobre el derecho a la educación inclusiva (CRPD/C/GC/4).',
+                conceptualChange: 'Establece definiciones jurídicas vinculantes: diferencia la exclusión (negación de acceso), la segregación (entornos separados), la integración (ubicación en aula regular sin transformar el sistema) y la inclusión (reforma sistémica de contenidos, métodos, estructuras y estrategias). Prohíbe la discriminación por motivos de discapacidad y exige ajustes razonables.',
+                historicalMilestone: 'Herramienta jurídica fundamental para exigir a los Estados la transición progresiva hacia sistemas educativos plenamente inclusivos y la erradicación de escuelas segregadas.',
+                reference: 'Comité CDPD - ONU (2016). Observación General N.º 4 sobre el derecho a la educación inclusiva.'
+            },
+            {
+                id: 'edu-1',
+                year: '2015',
+                sortYear: 2015.5,
+                category: 'educacionInclusiva',
+                types: ['autores', 'conceptual'],
+                title: 'Guía para la Educación Inclusiva: nueva edición revisada y ampliada (Valores Inclusivos)',
+                summary: 'Actualización profunda del Index for Inclusion que articula el desarrollo escolar con valores éticos, sostenibilidad ambiental, democracia y currículo global.',
+                authors: 'Tony Booth, Cecilia Simón, Marta Sandoval, Gerardo Echeita y Yolanda Muñoz.',
+                normativity: 'Marco de referencia internacional publicado por la OEI / FUHEM para la mejora escolar.',
+                conceptualChange: 'Consolida un marco explícito de valores inclusivos (igualdad, derechos, participación, comunidad, respeto a la diversidad, sostenibilidad, no violencia, confianza, compasión, honestidad, valor, alegría, amor, esperanza y belleza) como brújula para transformar el currículo y la gestión escolar.',
+                historicalMilestone: 'Expansión del enfoque de mejora escolar inclusiva hacia una visión holística del currículo y la convivencia democrática en Iberoamérica.',
+                reference: 'Booth, T., Simón, C., Sandoval, M., Echeita, G., y Muñoz, Y. (2015). Guía para la Educación Inclusiva: nueva edición revisada y ampliada. REICE, 13(3), 5-19.'
+            },
+            {
+                id: 'edu-2',
+                year: '2017',
+                sortYear: 2017,
+                category: 'educacionInclusiva',
+                types: ['normatividad', 'historico', 'conceptual'],
+                title: 'Decreto 1421 de 2017 en Colombia (MEN), DUA y Plan Individual de Ajustes Razonables (PIAR)',
+                summary: 'Reglamentación histórica en Colombia que establece la ruta, el esquema de atención educativa y los apoyos para garantizar la educación inclusiva.',
+                authors: 'Ministerio de Educación Nacional de Colombia (MEN) y organizaciones de personas con discapacidad.',
+                normativity: 'Decreto 1421 del 29 de agosto de 2017 (por el cual se reglamenta en el marco de la educación inclusiva la atención educativa a la población con discapacidad).',
+                conceptualChange: 'Articula la planificación pedagógica universal mediante el Diseño Universal para el Aprendizaje (DUA) con los apoyos específicos a través del Plan Individual de Ajustes Razonables (PIAR), eliminando barreras actitudinales, comunicativas y pedagógicas en las instituciones educativas.',
+                historicalMilestone: 'Hito normativo en Colombia que obliga a todas las instituciones educativas públicas y privadas a garantizar el acceso, permanencia, promoción y titulación con calidad en el sistema educativo regular.',
+                reference: 'Ministerio de Educación Nacional [MEN]. (2017). Decreto 1421 de 2017. República de Colombia.'
+            },
+            {
+                id: 'edu-3',
+                year: '2019',
+                sortYear: 2019,
+                category: 'educacionInclusiva',
+                types: ['autores', 'conceptual'],
+                title: 'Mirada crítica latinoamericana: contradicciones, debates y resistencias',
+                summary: 'Análisis situado que interpela las políticas hegemónicas de inclusión desde la pedagogía de la hospitalidad, la interculturalidad crítica y la emancipación.',
+                authors: 'Nydia Marcela Castillo Ibáñez (dialogando con Carlos Skliar, Rodolfo Stavenhagen y Paulo Freire).',
+                normativity: 'Análisis crítico de las políticas educativas latinoamericanas contemporáneas.',
+                conceptualChange: 'Cuestiona las visiones tecnocráticas o meramente retóricas de la inclusión. Retoma a Skliar (ética de la hospitalidad y crítica a la "normalidad"), Stavenhagen (derechos de los pueblos indígenas e interculturalidad crítica) y Freire (educación emancipadora y lectura crítica de la realidad) para pensar una inclusión desde las realidades del Sur.',
+                historicalMilestone: 'Aporte fundamental para evitar que la educación inclusiva se reduzca a un trámite administrativo, devolviéndole su potencia ética, política y transformadora en América Latina.',
+                reference: 'Castillo Ibáñez, N. M. (2019). Educación inclusiva: contradicciones, debates y resistencias. Praxis Educativa, 23(3), 1-14.'
+            },
+            {
+                id: 'edu-4',
+                year: '2020',
+                sortYear: 2020,
+                category: 'educacionInclusiva',
+                types: ['normatividad', 'historico', 'conceptual'],
+                title: 'Informe GEM de la UNESCO 2020: "Inclusión y educación: todos sin excepción"',
+                summary: 'Síntesis global que consolida la educación inclusiva como principio rector para todos los educandos, declarando que la diversidad debe celebrarse como la norma.',
+                authors: 'Equipo del Informe de Seguimiento de la Educación en el Mundo (GEM Report - UNESCO).',
+                normativity: 'Informe GEM 2020 de la UNESCO (seguimiento global al cumplimiento del ODS 4).',
+                conceptualChange: 'Consolida definitivamente la visión amplia: la educación inclusiva concierne a todos los estudiantes sin excepción, independientemente de su identidad, origen o capacidad. Los sistemas educativos deben diseñarse desde el inicio para la diversidad humana ("la diversidad es la norma"), superando enfoques fragmentados.',
+                historicalMilestone: 'Referente global contemporáneo publicado en el contexto de la pandemia de COVID-19, evidenciando cómo las crisis profundizan las brechas educativas cuando los sistemas no son estructuralmente inclusivos.',
+                reference: 'UNESCO (2020). Informe de Seguimiento de la Educación en el Mundo 2020: Inclusión y educación, todos sin excepción.'
+            }
+        ];
+
+        // Estado de la aplicación
+        let state = {
+            selectedCategory: 'all',
+            selectedType: 'all',
+            selectedEventId: 'seg-1',
+            activeTab: 'timeline'
+        };
+
+        // Inicialización al cargar el DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategoryFilters();
+            renderTypeFilters();
+            renderTimeline();
+        });
+
+        // Cambio de pestañas principales (Línea de Tiempo / Matriz / Justificación)
+        function switchTab(tabId) {
+            state.activeTab = tabId;
+            
+            // Actualizar botones
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            activeBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            activeBtn.classList.remove('text-slate-600');
+
+            // Mostrar/ocultar secciones
+            ['timeline', 'matrix', 'justification'].forEach(view => {
+                const el = document.getElementById(`view-${view}`);
+                if (view === tabId) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+        }
+
+        // Renderizar botones de filtro por las 5 categorías
+        function renderCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            const isAll = state.selectedCategory === 'all';
+            
+            let html = `
+                <button onclick="setCategoryFilter('all')" 
+                    class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all ${isAll ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'}">
+                    Todas las categorías (5)
+                </button>
+            `;
+
+            Object.values(CATEGORIES).forEach(cat => {
+                const isActive = state.selectedCategory === cat.id;
+                html += `
+                    <button onclick="setCategoryFilter('${cat.id}')" 
+                        class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all ${isActive ? cat.activeBtn : cat.inactiveBtn}">
+                        ${cat.label}
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Renderizar botones de filtro secundario por dimensión
+        function renderTypeFilters() {
+            const container = document.getElementById('type-filters');
+            container.innerHTML = DIMENSION_TYPES.map(dim => {
+                const isActive = state.selectedType === dim.id;
+                return `
+                    <button onclick="setTypeFilter('${dim.id}')" 
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${isActive ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900'}">
+                        ${dim.label}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        // Establecer filtro de categoría
+        function setCategoryFilter(catId) {
+            state.selectedCategory = catId;
+            renderCategoryFilters();
+            renderTimeline();
+        }
+
+        // Establecer filtro de dimensión
+        function setTypeFilter(typeId) {
+            state.selectedType = typeId;
+            renderTypeFilters();
+            renderTimeline();
+        }
+
+        // Restablecer todos los filtros
+        function resetFilters() {
+            state.selectedCategory = 'all';
+            state.selectedType = 'all';
+            renderCategoryFilters();
+            renderTypeFilters();
+            renderTimeline();
+        }
+
+        // Obtener eventos filtrados
+        function getFilteredEvents() {
+            return TIMELINE_EVENTS.filter(event => {
+                const matchCat = state.selectedCategory === 'all' || event.category === state.selectedCategory;
+                const matchType = state.selectedType === 'all' || event.types.includes(state.selectedType);
+                return matchCat && matchType;
+            });
+        }
+
+        // Etiquetas legibles para las dimensiones
+        function getTypeBadgeLabel(type) {
+            const map = {
+                autores: 'Autores',
+                normatividad: 'Normatividad',
+                conceptual: 'Cambio Conceptual',
+                historico: 'Hito Histórico'
+            };
+            return map[type] || type;
+        }
+
+        // Renderizar la línea de tiempo (nodos horizontales + eje vertical + ficha seleccionada)
+        function renderTimeline() {
+            const filtered = getFilteredEvents();
+            const timelineContainer = document.getElementById('timeline-container');
+            const quickNavTrack = document.getElementById('quick-nav-track');
+            const emptyState = document.getElementById('empty-state');
+            const counterBadge = document.getElementById('counter-badge');
+
+            counterBadge.textContent = `Mostrando ${filtered.length} ${filtered.length === 1 ? 'hito' : 'hitos'}`;
+
+            if (filtered.length === 0) {
+                timelineContainer.innerHTML = '';
+                quickNavTrack.innerHTML = '<span class="text-xs text-slate-400 py-1">Sin nodos disponibles para el filtro actual</span>';
+                emptyState.classList.remove('hidden');
+                renderDetailPanel(null);
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            // Asegurar que haya un evento seleccionado válido dentro de los filtrados
+            if (!filtered.some(e => e.id === state.selectedEventId)) {
+                state.selectedEventId = filtered[0].id;
+            }
+
+            // 1. Renderizar barra rápida horizontal
+            quickNavTrack.innerHTML = filtered.map(ev => {
+                const cat = CATEGORIES[ev.category];
+                const isSelected = ev.id === state.selectedEventId;
+                return `
+                    <button onclick="selectEvent('${ev.id}', true)" 
+                        class="shrink-0 px-3 py-1.5 rounded-xl border text-left transition-all flex items-center gap-2 ${isSelected ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'}">
+                        <span class="w-2.5 h-2.5 rounded-full ${cat.dotColor.split(' ')[0]} shrink-0"></span>
+                        <span class="text-xs font-bold whitespace-nowrap">${ev.year.split('–')[0].trim()}</span>
+                        <span class="text-[11px] opacity-80 truncate max-w-[120px]">${cat.shortLabel}</span>
+                    </button>
+                `;
+            }).join('');
+
+            // 2. Renderizar tarjetas del eje vertical
+            timelineContainer.innerHTML = filtered.map(ev => {
+                const cat = CATEGORIES[ev.category];
+                const isSelected = ev.id === state.selectedEventId;
+
+                return `
+                    <article id="card-${ev.id}" onclick="selectEvent('${ev.id}', false)" 
+                        class="relative group cursor-pointer rounded-2xl border-l-4 ${cat.accentBorder} border transition-all duration-200 p-4 sm:p-5 ${isSelected ? 'bg-white border-slate-300 shadow-lg ring-2 ring-indigo-500/30 scale-[1.01]' : 'bg-white/90 hover:bg-white border-slate-200 hover:shadow-md'}">
+                        
+                        <!-- Nodo circular sobre la línea vertical -->
+                        <span class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full ${cat.dotColor} ring-4 transition-transform ${isSelected ? 'scale-125' : 'group-hover:scale-110'}"></span>
+
+                        <!-- Encabezado de la tarjeta -->
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200">
+                                ${ev.year}
+                            </span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${cat.badgeBg}">
+                                ${cat.label}
+                            </span>
+                        </div>
+
+                        <!-- Título y resumen -->
+                        <h3 class="font-serif text-base sm:text-lg font-bold text-slate-900 group-hover:text-indigo-900 transition-colors leading-snug">
+                            ${ev.title}
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">
+                            ${ev.summary}
+                        </p>
+
+                        <!-- Etiquetas de dimensiones y acción -->
+                        <div class="mt-3 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex flex-wrap gap-1.5">
+                                ${ev.types.map(t => `
+                                    <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                                        ${getTypeBadgeLabel(t)}
+                                    </span>
+                                `).join('')}
+                            </div>
+                            <span class="text-xs font-semibold text-indigo-700 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                                ${isSelected ? 'Analizando ficha' : 'Ver análisis'}
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            // 3. Renderizar panel de detalle ampliado
+            const selectedEvent = filtered.find(e => e.id === state.selectedEventId) || filtered[0];
+            renderDetailPanel(selectedEvent);
+        }
+
+        // Seleccionar un hito específico
+        function selectEvent(eventId, shouldScrollToCard = false) {
+            state.selectedEventId = eventId;
+            renderTimeline();
+
+            if (shouldScrollToCard) {
+                const cardEl = document.getElementById(`card-${eventId}`);
+                if (cardEl) {
+                    cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else if (window.innerWidth < 1024) {
+                // En pantallas móviles/tablet, desplazar suavemente hacia el panel de detalle
+                const detailEl = document.getElementById('detail-panel');
+                if (detailEl) {
+                    detailEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        }
+
+        // Renderizar la ficha analítica ampliada
+        function renderDetailPanel(ev) {
+            const panel = document.getElementById('detail-panel');
+            if (!ev) {
+                panel.innerHTML = `
+                    <div class="p-6 text-center text-slate-500 text-sm">
+                        Selecciona un acontecimiento en la línea de tiempo para visualizar su ficha académica.
+                    </div>
+                `;
+                return;
+            }
+
+            const cat = CATEGORIES[ev.category];
+            const filtered = getFilteredEvents();
+            const currentIndex = filtered.findIndex(item => item.id === ev.id);
+            const prevEvent = currentIndex > 0 ? filtered[currentIndex - 1] : null;
+            const nextEvent = currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
+
+            panel.innerHTML = `
+                <!-- Cabecera con color temático de la categoría -->
+                <div class="${cat.headerBg} text-white p-5 sm:p-6">
+                    <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wider opacity-90 mb-2">
+                        <span>${cat.label}</span>
+                        <span class="bg-white/20 px-2.5 py-0.5 rounded-full">${ev.year}</span>
+                    </div>
+                    <h2 class="font-serif text-lg sm:text-xl font-bold leading-snug">
+                        ${ev.title}
+                    </h2>
+                </div>
+
+                <!-- Cuerpo de la ficha académica -->
+                <div class="p-5 sm:p-6 space-y-4 text-sm">
+                    
+                    <!-- Cambio Conceptual Clave -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200">
+                        <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-indigo-800 mb-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                            <span>Cambio Conceptual Clave</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-xs sm:text-sm">${ev.conceptualChange}</p>
+                    </div>
+
+                    <!-- Autores Representativos -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Autores / Actores Representativos</h4>
+                        <p class="text-slate-800 font-medium text-xs sm:text-sm">${ev.authors}</p>
+                    </div>
+
+                    <!-- Normatividad Asociada -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Normatividad / Marco Institucional</h4>
+                        <p class="text-slate-800 text-xs sm:text-sm">${ev.normativity}</p>
+                    </div>
+
+                    <!-- Hito Histórico -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Relevancia e Hito Histórico</h4>
+                        <p class="text-slate-700 leading-relaxed text-xs sm:text-sm">${ev.historicalMilestone}</p>
+                    </div>
+
+                    <!-- Referencia Bibliográfica -->
+                    <div class="pt-3 border-t border-slate-200">
+                        <h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Referencia Bibliográfica Base</h4>
+                        <p class="text-xs text-slate-600 italic font-serif leading-relaxed">${ev.reference}</p>
+                    </div>
+
+                    <!-- Controles de navegación Anterior / Siguiente -->
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                        <button onclick="${prevEvent ? `selectEvent('${prevEvent.id}', true)` : ''}" 
+                            ${!prevEvent ? 'disabled' : ''}
+                            class="px-3 py-2 rounded-xl text-xs font-semibold border transition-all flex items-center gap-1 ${prevEvent ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50' : 'bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed'}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            <span>Anterior</span>
+                        </button>
+
+                        <span class="text-xs text-slate-400 font-medium">
+                            ${currentIndex + 1} de ${filtered.length}
+                        </span>
+
+                        <button onclick="${nextEvent ? `selectEvent('${nextEvent.id}', true)` : ''}" 
+                            ${!nextEvent ? 'disabled' : ''}
+                            class="px-3 py-2 rounded-xl text-xs font-semibold border transition-all flex items-center gap-1 ${nextEvent ? 'bg-slate-900 text-white border-slate-900 hover:bg-slate-800' : 'bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed'}">
+                            <span>Siguiente</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Copiar texto de la Justificación Académica al portapapeles usando método compatible con iframes
+        function copyJustificationText() {
+            const contentEl = document.getElementById('justification-content');
+            const textToCopy = contentEl.innerText.trim();
+
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            textArea.style.top = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('Justificación académica copiada al portapapeles.');
+                } else {
+                    showToast('No se pudo copiar automáticamente. Selecciona el texto manualmente.');
+                }
+            } catch (err) {
+                showToast('Error al copiar el texto. Intenta seleccionarlo manualmente.');
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // Mostrar notificación visual (Toast)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3200);
+        }
+    </script>
+</body>
+</html>
